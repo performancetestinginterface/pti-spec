@@ -36,7 +36,7 @@ spec:
 ```
 
 #### PerformanceTest
-This resource is used to describe a performance test. It is a simple test configuration that allows the performance testing provider to define configure the full deployment spec with standard testing paramters.
+This resource is used to describe a performance test. It is a simple test configuration that allows the performance testing provider to define configure the full deployment spec with standard testing parameters.
 
 ```yaml
 apiVersion: specs.pti-spec.io
