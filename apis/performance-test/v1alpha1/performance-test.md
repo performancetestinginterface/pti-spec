@@ -52,4 +52,4 @@ spec:
 ```  
 ## Out of Scope
 
-* Passing of scripts via ConfigMaps - ConfigMaps are non-versionable entities and do not fit natually into the development flow in this manner. 
+* Passing of scripts via ConfigMaps - ConfigMaps are non-versionable entities and do not fit naturally into the development flow in this manner. 
