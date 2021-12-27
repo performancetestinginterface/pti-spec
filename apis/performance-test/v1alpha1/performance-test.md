@@ -36,7 +36,7 @@ spec:
 ```
 
 #### PerformanceTest
-This resource is used to describe a perofrmance test. It is a simple test configuration that allows the performance testing provider to define configure the full deployment spec with standard testing paramters.
+This resource is used to describe a performance test. It is a simple test configuration that allows the performance testing provider to define configure the full deployment spec with standard testing paramters.
 
 ```yaml
 apiVersion: specs.pti-spec.io
@@ -45,11 +45,26 @@ metadata:
   name: performance-test-for-foo-application
 spec:
   runner:
-    name: test-runner
+    name: test-runner-for-foo-application
     replicas: 1
     total-requests: 100
     queries-per-second-limit: 1
-```  
+``` 
+
+
+#### PerformanceTestRun
+This resource is to create a performance test run. It is a simple run configuration that allows the performance testing provider to create and run the test.
+
+```yaml
+apiVersion: specs.pti-spec.io
+kind: PerformanceTestRun
+metadata:
+  name: performance-test-run-for-foo-application-as23fs
+spec:
+  performance-test: performance-test-for-foo-application
+``` 
+
+
 ## Out of Scope
 
 * Passing of scripts via ConfigMaps - ConfigMaps are non-versionable entities and do not fit naturally into the development flow in this manner. 
