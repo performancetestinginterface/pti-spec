@@ -1,6 +1,6 @@
 # Traffic Access Control
 
-**API Group:** performance.pti-spec.io
+**API Group:** performancetest.pti-spec.io
 
 **API Version:** v1alpha1
 
@@ -13,45 +13,36 @@ applications.
 
 
 ```yaml
-kind: HTTPRouteGroup
+kind: Runner
 metadata:
-  name: the-routes
-matches:
-- name: metrics
-  pathRegex: "/metrics"
-  methods:
-  - GET
-- name: everything
-  pathRegex: ".*"
-  methods: ["*"]
+  name: test-runner-for-foo-application
+spec:
+  image: <custom-image>
+  metadata:
+    labels:
+      cool-label: foo
+    annotations:
+      cool-annotation: bar
+  resources:
+    limits:
+      cpu: 200m
+      memory: 1000mi
+    requests:
+      cpu: 100m
+      memory: 500Mi
 ```
-
-For this definition, there are two routes: metrics and everything. It is a
-common use case to restrict access to `/metrics` to only be scraped by
-Prometheus. To define the target for this traffic, it takes a `TrafficTarget`.
 
 ```yaml
----
-kind: TrafficTarget
+kind: PerformanceTest
 metadata:
-  name: path-specific
-  namespace: default
-destination:
-  kind: ServiceAccount
-  name: service-a
-  namespace: default
-  port: 8080
-specs:
-- kind: HTTPRouteGroup
-  name: the-routes
-  matches:
-  - metrics
-sources:
-- kind: ServiceAccount
-  name: prometheus
-  namespace: default
+  name: performance-test-for-foo-application
+spec:
+  runner:
+    name: test-runner
+    replicas: 1
+    requests: 100
+    queries-per-second: 1
 ```
-
 
 
 ## Example Implementation
