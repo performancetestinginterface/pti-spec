@@ -3,7 +3,7 @@
 ## Project Maintainers
 
 [Project maintainers](CODEOWNERS) are responsible for activities around
-maintaining and updating the SMI specification. Final decisions on the spec
+maintaining and updating the PTI specification. Final decisions on the spec
 reside with the project maintainers.
 
 Maintainers MUST remain active. If they are unresponsive for >3 months, they
