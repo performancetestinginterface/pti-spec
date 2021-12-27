@@ -35,7 +35,7 @@ spec:
       memory: 500Mi
 ```
 
-#### Runner
+#### PerformanceTest
 This resource is used to describe a perofrmance test. It is a simple test configuration that allows the performance testing provider to define configure the full deployment spec with standard testing paramters.
 
 ```yaml
