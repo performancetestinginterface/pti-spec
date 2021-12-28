@@ -47,8 +47,9 @@ spec:
   runner:
     name: test-runner-for-foo-application
     replicas: 1
-    total-requests: 100
+    total-iterations: 100
     queries-per-second-limit: 1
+    users: 1
 ``` 
 
 
